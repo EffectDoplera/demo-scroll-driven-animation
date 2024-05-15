@@ -1,0 +1,89 @@
+html,
+body {
+	margin: 0;
+	padding: 0;
+	background: #fff;
+}
+
+body {
+	font-size: clamp(1.1em, calc(0.5em + 1vw), 3em);
+	line-height: 1.42;
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+		"Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+	font-weight: 300;
+}
+
+main {
+	width: 90vw;
+	max-width: 40em;
+	margin: 0 auto;
+}
+
+img {
+	width: 100%;
+	height: auto;
+}
+
+/* Show warning for browsers without support */
+.warning {
+	border: 1px solid black;
+	color: black;
+	background: rgba(255 255 225 / 0.9);
+	z-index: 1;
+
+	position: fixed;
+	bottom: 1em;
+	left: 1em;
+	right: 1em;
+	text-align: center;
+}
+
+.warning p {
+	margin: 1em 0;
+}
+
+/* Hide warning when native view-timeline support detected */
+@supports (scroll-timeline: --works) {
+	.warning {
+		display: none;
+	}
+}
+
+@keyframes grow-progress {
+	from {
+		transform: scaleX(0);
+	}
+	to {
+		transform: scaleX(1);
+	}
+}
+
+#progress {
+  animation: grow-progress linear forwards;
+  animation-timeline: scroll(block root);
+	transform-origin: 0 50%;
+	transform: scaleX(0);
+
+  background: #04aa6d;
+	width: 100%;
+	height: 20px;
+	position: fixed;
+}
+
+.progress-container {
+	top: 0;
+	width: 100%;
+	height: 20px;
+	background: #ccc;
+	position: fixed;
+}
+
+.title {
+	margin-top: 20px;
+}
+.title h1 {
+	padding-top: 1%;
+}
+.title h1 span {
+  color: #04AA6D;
+}
