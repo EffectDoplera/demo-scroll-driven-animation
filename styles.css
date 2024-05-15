@@ -24,6 +24,22 @@ img {
 	height: auto;
 }
 
+figcaption {
+	text-align: center;
+	font-style: italic;
+	font-size: 75%;
+}
+
+.title {
+	margin-top: 20px;
+}
+.title h1 {
+	padding-top: 1%;
+}
+.title h1 span {
+  color: #04AA6D;
+}
+
 /* Show warning for browsers without support */
 .warning {
 	border: 1px solid black;
@@ -78,12 +94,19 @@ img {
 	position: fixed;
 }
 
-.title {
-	margin-top: 20px;
+@keyframes reveal {
+	from {
+		opacity: 0;
+		clip-path: inset(45% 20% 45% 20%);
+	}
+
+	50% {
+		opacity: 1;
+		clip-path: inset(0% 0% 0% 0%);
+	}
 }
-.title h1 {
-	padding-top: 1%;
-}
-.title h1 span {
-  color: #04AA6D;
+
+.revealing-image {
+	animation: reveal linear forwards;
+	animation-timeline: view();
 }
